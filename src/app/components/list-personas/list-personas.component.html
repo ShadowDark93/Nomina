@@ -1,0 +1,32 @@
+<div class="container">
+    <button class="btn btn-outline-primary mt-5" routerLink="addPersona">Agregar Persona</button>
+    <div class="row mt-3">
+        <table *ngIf="listPersonas.length > 0" class="table table table-striped table-bordered caption-top">
+            <caption>Lista de usuarios</caption>
+            <thead class="table table-dark">
+                <tr>
+                    <th scope="col">DOCUMENTO</th>
+                    <th scope="col">NOMBRES</th>
+                    <th scope="col">APELLIDOS</th>
+                    <th scope="col">CARGO</th>
+                    <th colspan="2">OPERACIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let persona of listPersonas">
+                    <th scope="row">{{ persona.documento }}</th>
+                    <td>{{ persona.nombres}}</td>
+                    <td>{{ persona.apellidos}}</td>
+                    <td>{{ persona.cargo }}</td>
+                    <td><button class="btn btn-warning btn-sm float-end">Editar</button></td>
+                    <td><button class="btn btn-danger btn-sm">Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="listPersonas.length == 0" class="row mt4">
+        <span>No hay personas para mostrar</span>
+    </div>
+
+</div>

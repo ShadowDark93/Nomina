@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="h1" style="text-align:center;">AGREGAR PERSONA</div>
+    <form class="mt-5" [formGroup]="addPersona" (ngSubmit)="agregar()">
+        <div class="form-floating mb-3">
+            <input formControlName="documento" type="number" class="form-control" id="documento" placeholder="Documento">
+            <label for="nombres">Documento</label>
+            <span *ngIf="addPersona.get('documento')?.invalid && addPersona.get('documento')?.touched" class="text-danger">
+              El <strong>Documento </strong>es requerido</span>
+        </div>
+        <div class="form-floating mb-3">
+            <input formControlName="nombres" type="text" class="form-control" id="nombres" placeholder="Nombres">
+            <label for="nombres">Nombres</label>
+            <span *ngIf="addPersona.get('nombres')?.invalid && addPersona.get('nombres')?.touched" class="text-danger">
+              Los <strong>Nombres </strong>son requeridos</span>
+        </div>
+        <div class="form-floating mb-3">
+            <input formControlName="apellidos" type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+            <label for="apellidos">Apellidos</label>
+            <span *ngIf="addPersona.get('apellidos')?.invalid && addPersona.get('apellidos')?.touched" class="text-danger">
+              Los <strong>Apellidos </strong>son requeridos</span>
+        </div>
+        <div class="form-floating mb-3">
+            <input formControlName="cargo" type="text" class="form-control" id="cargo" placeholder="Cargo">
+            <label for="cargo">Cargo</label>
+            <span *ngIf="addPersona.get('cargo')?.invalid && addPersona.get('cargo')?.touched" class="text-danger">
+              El <strong>Cargo </strong>es requerido</span>
+        </div>
+
+        <button type="button" class="btn-primary" routerLink="">Volver</button>
+        <button type="submit" [disabled]="addPersona.invalid" class="btn btn-success">Enviar</button>
+    </form>
+</div>
